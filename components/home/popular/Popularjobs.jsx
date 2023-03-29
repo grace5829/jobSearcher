@@ -41,7 +41,7 @@ const handleCardPress =(item)=>{
         ) : (
           <FlatList
             data={data}
-            renderItem={({ item }) => <PopularJobCard item={item} />}
+            renderItem={({ item }) => <PopularJobCard item={item} handleCardPress={handleCardPress} />}
             keyExtractor={item => item?.job_id}
             contentContainerStyle={{columnGap:SIZES.medium}}
             horizontal
