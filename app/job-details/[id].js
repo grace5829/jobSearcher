@@ -19,6 +19,7 @@ import {
 } from "../../components";
 import { COLORS, icons, SIZES } from "../../constants";
 import useFetch from "../../hook/useFetch";
+const tabs=["About", "Qualifications", 'Responsibilities']
 
 const JobDetails = () => {
   const params = useSearchParams();
@@ -28,6 +29,7 @@ const JobDetails = () => {
     job_id: params.id,
   });
   const [refreshing, setRefreshing] = useState(false);
+  const [activeTab, setActiveTab]= useState(tabs[0])
   const onRefresh = () => {};
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
@@ -70,7 +72,11 @@ const JobDetails = () => {
                 companyName={data[0].employer_name}
                 Location={data[0].job_country}
               />
-              <JobTabs />
+              <JobTabs 
+                tabs={tabs}
+                activeTab={activeTab}
+                setActiveTab={setActiveTab}
+              />
             </View>
           )}
         </ScrollView>
