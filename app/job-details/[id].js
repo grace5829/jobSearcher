@@ -28,7 +28,6 @@ const JobDetails = () => {
     job_id: params.id,
   });
   const [refreshing, setRefreshing] = useState(false);
-
   const onRefresh = () => {};
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.lightWhite }}>
@@ -65,7 +64,7 @@ const JobDetails = () => {
             <Text>No data</Text>
           ) : (
             <View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
-              <Company 
+            <Company
                 companyLogo={data[0].employer_logo}
                 jobTitle={data[0].job_title}
                 companyName={data[0].employer_name}
