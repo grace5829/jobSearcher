@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import rapidApiKey from './apiKey'
-// const rapidApiKey=RAPID_API_KEY
+
 const useFetch= (endpoint, query)=>{
 
 const [data,setData]=useState([])
@@ -42,7 +42,7 @@ const refetch =()=>{
     fetchData()
 }
 
-return (data, isLoading, error, refetch)
+return {data, isLoading, error, refetch}
 }
 
 export default useFetch
