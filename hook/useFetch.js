@@ -18,31 +18,32 @@ const options = {
     params: {...query},
   };
 
-const fetchData=async ()=>{
-    setIsLoading(true)
-    try{
-        const response=await axios.request 
-        (options)
-        setData(response.data.data)
-        setIsLoading(false)
-    } catch(error) {
-        setError(error)
-        alert('There is an error')
+  const fetchData = async () => {
+    setIsLoading(true);
+
+    try {
+      const response = await axios.request(options);
+
+      setData(response.data.data);
+      setIsLoading(false);
+    } catch (error) {
+      setError(error);
+      console.log(error)
     } finally {
-        setIsLoading(false)
+      setIsLoading(false);
     }
-}
+  };
 
-useEffect(()=>{
-    fetchData()
-},[])
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-const refetch =()=>{
-    setIsLoading(true)
-    fetchData()
-}
+  const refetch = () => {
+    setIsLoading(true);
+    fetchData();
+  };
 
-return {data, isLoading, error, refetch}
+  return { data, isLoading, error, refetch };
 }
 
 export default useFetch
